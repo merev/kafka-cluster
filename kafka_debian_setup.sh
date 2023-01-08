@@ -3,6 +3,9 @@
 echo "* Add any prerequisites ..."
 apt-get update -y && apt-get install -y python3 python3-pip openjdk-17-jre
 
+echo "* Add kafka-python ..."
+pip3 install kafka-python
+
 echo "* Download the recent package ..."
 wget https://dlcdn.apache.org/kafka/3.3.1/kafka_2.13-3.3.1.tgz
 
