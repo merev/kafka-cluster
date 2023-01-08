@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
     v.cpus = 2
   end
 
-  # Apache Kafka Machines - CentOS Stream 8
+  # Apache Kafka Machines - Debian 11
   (1..3).each do |i|
     config.vm.define "kafka-#{i}" do |kafka|
       kafka.vm.hostname = "kafka-#{i}"
