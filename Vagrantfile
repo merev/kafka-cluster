@@ -20,6 +20,7 @@ Vagrant.configure("2") do |config|
       kafka.vm.synced_folder "shared/", "/shared"
       kafka.vm.provision "shell", path: "initial-config/add_hosts.sh"
       kafka.vm.provision "shell", path: "initial-config/kafka_debian_setup.sh"
+      kafka.vm.provision "shell", path: "initial-config/node_exp_setup.sh"
     end
   end
   
