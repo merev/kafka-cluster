@@ -18,8 +18,8 @@ Vagrant.configure("2") do |config|
       kafka.vm.hostname = "kafka-#{i}"
       kafka.vm.network "private_network", ip: "192.168.99.10#{i}"
       kafka.vm.synced_folder "shared/", "/shared"
-      kafka.vm.provision "shell", path: "add_hosts.sh"
-      kafka.vm.provision "shell", path: "kafka_debian_setup.sh"
+      kafka.vm.provision "shell", path: "initial-config/add_hosts.sh"
+      kafka.vm.provision "shell", path: "initial-config/kafka_debian_setup.sh"
     end
   end
   
@@ -28,7 +28,8 @@ Vagrant.configure("2") do |config|
     monitoring.vm.hostname = "monitoring"
     monitoring.vm.network "private_network", ip: "192.168.99.104"
     monitoring.vm.synced_folder "shared/", "/shared"
-    monitoring.vm.provision "shell", path: "add_hosts.sh"
+    monitoring.vm.provision "shell", path: "initial-config/add_hosts.sh"
+    monitoring.vm.provision "shell", path: "initial-config/docker_setup.sh"
   end
 
 end
