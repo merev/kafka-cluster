@@ -1,0 +1,19 @@
+- hosts: kafka-1
+  become: true
+  tasks:
+    - name: Start the Zookeeper
+      ansible.builtin.command: sudo kafka_2.13-3.3.1/bin/zookeeper-server-start.sh -daemon kafka_2.13-3.3.1/config/zookeeper.properties
+
+
+- hosts: kafka-2
+  become: true
+  tasks:
+    - name: Start the Zookeeper
+      ansible.builtin.command: sudo kafka_2.13-3.3.1/bin/zookeeper-server-start.sh -daemon kafka_2.13-3.3.1/config/zookeeper.properties
+
+
+- hosts: kafka-3
+  become: true
+  tasks:
+    - name: Start the Zookeeper
+      ansible.builtin.command: sudo kafka_2.13-3.3.1/bin/zookeeper-server-start.sh -daemon kafka_2.13-3.3.1/config/zookeeper.properties
