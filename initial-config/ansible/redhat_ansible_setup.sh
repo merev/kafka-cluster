@@ -29,5 +29,5 @@ echo "* Create ansible workspace directory ..."
 mkdir -p /home/vagrant/ansible
 cp -r /shared/master/ansible-components/* /home/vagrant/ansible/
 mkdir -p /home/vagrant/ansible/bgapp-data
-cp -r /shared/bgapp-data/* /home/vagrant/ansible/bgapp-data
-cp -r /shared/playbooks/* /home/vagrant/ansible/
+cp -r /shared/master/bgapp-data/* /home/vagrant/ansible/bgapp-data
+cp -r /shared/master/playbooks/* /home/vagrant/ansible/
