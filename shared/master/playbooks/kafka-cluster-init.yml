@@ -1,5 +1,7 @@
 - hosts: kafka-cluster
   become: true
   tasks:
-    - name: Start the Zookeeper
+    - name: Start the Zookeepers
       ansible.builtin.command: sudo kafka_2.13-3.3.1/bin/zookeeper-server-start.sh -daemon kafka_2.13-3.3.1/config/zookeeper.properties
+    - name: Start the Brokers
+      ansible.builtin.command: sudo kafka_2.13-3.3.1/bin/kafka-server-start.sh -daemon kafka_2.13-3.3.1/config/server.properties
