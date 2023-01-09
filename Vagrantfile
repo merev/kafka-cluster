@@ -30,6 +30,7 @@ Vagrant.configure("2") do |config|
     monitoring.vm.synced_folder "shared/", "/shared"
     monitoring.vm.provision "shell", path: "initial-config/add_hosts.sh"
     monitoring.vm.provision "shell", path: "initial-config/docker_setup.sh"
+    monitoring.vm.provision "shell", path: "initial-config/prometheus_setup.sh"
   end
 
 end
