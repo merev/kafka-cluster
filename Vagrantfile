@@ -4,8 +4,6 @@
 Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
 
-  config.vm.box = "merev/debian-11"
-
   config.vm.provider "virtualbox" do |v|
     v.gui = false
     v.memory = 2048
@@ -26,6 +24,7 @@ Vagrant.configure("2") do |config|
   # Apache Kafka Machines - Debian 11
   (1..3).each do |i|
     config.vm.define "kafka-#{i}" do |kafka|
+      kafka.vm.box = "merev/debian-11"
       kafka.vm.hostname = "kafka-#{i}"
       kafka.vm.network "private_network", ip: "192.168.99.10#{i}"
       kafka.vm.synced_folder "shared/", "/shared"
@@ -36,8 +35,9 @@ Vagrant.configure("2") do |config|
     end
   end
   
-  # Monitoring Machine - CentOS Stream 8
+  # Monitoring Machine (docker host) - Debian 11
   config.vm.define "monitoring" do |monitoring|
+    monitoring.vm.box = "merev/debian-11"
     monitoring.vm.hostname = "monitoring"
     monitoring.vm.network "private_network", ip: "192.168.99.104"
     monitoring.vm.synced_folder "shared/", "/shared"
