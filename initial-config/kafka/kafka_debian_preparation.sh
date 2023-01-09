@@ -28,8 +28,8 @@ sed -i '38s/#//' /home/vagrant/kafka_2.13-3.3.1/config/server.properties
 sed -i "38s/your.host.name/$HOSTNAME/" /home/vagrant/kafka_2.13-3.3.1/config/server.properties
 sed -i '125s/localhost/kafka-1:2181,kafka-2:2181,kafka-3/' /home/vagrant/kafka_2.13-3.3.1/config/server.properties
 
-echo "* Start the Zookeeper ..."
-kafka_2.13-3.3.1/bin/zookeeper-server-start.sh -daemon kafka_2.13-3.3.1/config/zookeeper.properties
-
-echo "* Start the Kafka Brocker ..."
-kafka_2.13-3.3.1/bin/kafka-server-start.sh -daemon kafka_2.13-3.3.1/config/server.properties
+#echo "* Start the Zookeeper ..."
+#kafka_2.13-3.3.1/bin/zookeeper-server-start.sh -daemon kafka_2.13-3.3.1/config/zookeeper.properties
+#
+#echo "* Start the Kafka Brocker ..."
+#kafka_2.13-3.3.1/bin/kafka-server-start.sh -daemon kafka_2.13-3.3.1/config/server.properties
