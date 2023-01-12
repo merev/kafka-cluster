@@ -32,6 +32,7 @@ Vagrant.configure("2") do |config|
       kafka.vm.provision "shell", path: "initial-config/ansible/ansible_debian_client.sh"
       kafka.vm.provision "shell", path: "initial-config/monitoring/node_exp_setup.sh"
       kafka.vm.provision "shell", path: "initial-config/kafka/kafka_debian_preparation.sh"
+      kafka.vm.provision "shell", path: "initial-config/monitoring/kafka_broker_monitoring_setup.sh"
     end
   end
   

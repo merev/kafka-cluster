@@ -1,0 +1,66 @@
+#!/bin/bash
+
+
+####################### BROKER #######################
+
+echo "* Start the broker ..."
+bin/kafka-server-start.sh -daemon config/server.properties
+
+echo "* Stop the broker ..."
+bin/kafka-server-stop.sh
+
+#####################################################
+
+
+
+####################### TOPICS #######################
+
+echo "* Create a topic with 1 partition and replication factor 3 ..."
+bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 3 --partitions 1 --topic demo
+
+echo "* Describe a topic ..."
+bin/kafka-topics.sh --describe --topic demo --bootstrap-server localhost:9092
+
+echo "* List all topics ..."
+bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+
+echo "* Delete a topic ..."
+bin/kafka-topics.sh --delete --bootstrap-server localhost:9092 --topic demo
+
+######################################################
+
+
+
+####################### PRODUCERS & CONSUMERS #######################
+
+echo "* Start a console procuser to generate messages in a specific topic ..."
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic demo
+
+echo "* Start a console consumer to read the messages in a specific topic ..."
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic demo
+
+echo "* Start a console consumer to read the messages in a specific topic from the beginning ..."
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic demo --from-beginning
+
+#####################################################################
+
+
+
+####################### LOGS #######################
+
+echo "* Check the broker logs ..."
+cat logs/server.log
+
+echo "* Check the zookeeper logs ..."
+cat logs/zookeeper.out
+
+####################################################
+
+
+
+
+
+
+
+
+

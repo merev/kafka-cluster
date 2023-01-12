@@ -1,0 +1,1 @@
+export KAFKA_OPTS="$KAFKA_OPTS -javaagent:jmxagent/jmx_prometheus_javaagent-0.17.2.jar=9101:jmxagent/kafka-2_0_0.yml"
