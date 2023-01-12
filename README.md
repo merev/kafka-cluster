@@ -3,7 +3,7 @@ This is an automated solution for Kafka cluster + Prometheus monitoring created 
  - clone the repository; 
  - open the directory in terminal;
  - execute the command `vagrant up`;
- - wait until the cluster is ready.
+ - wait until the environment is ready.
 
 #### Requirements:
 
