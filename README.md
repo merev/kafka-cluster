@@ -1,4 +1,4 @@
-# Kafka Cluster 
+# Kafka Cluster on Virtual Machines
 This is an automated solution for Kafka cluster + Prometheus monitoring created through Vagrant and Ansible. Follow the steps below:
  - clone the repository; 
  - open the directory in terminal;
