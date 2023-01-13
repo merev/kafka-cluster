@@ -4,6 +4,9 @@ echo "* Stop SE Linux ..."
 sudo setenforce permissive
 sudo sed -i 's\=enforcing\=permissive\g' /etc/sysconfig/selinux
 
+echo "* Disable the firewall ..."
+systemctl disable --now firewalld
+
 echo "* Add any prerequisites ..."
 dnf install -y python3 python3-pip
 
